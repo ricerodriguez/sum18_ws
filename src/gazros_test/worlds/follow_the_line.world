@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="follow_the_line">
+    <include>
+      <uri>model://line_map</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/> -->
+    <!-- <plugin name="map" filename="libStaticMapPlugin.so">
+         <center> 30 30 </center>
+         <world_size>100</world_size>
+         <tile_size> -->
+  </world>
+</sdf>

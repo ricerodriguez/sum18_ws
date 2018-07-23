@@ -1,0 +1,63 @@
+<launch>
+     <arg
+          name = "paused"
+          value = "true"
+     />
+     <arg
+          name = "use_sim_time"
+          value = "true"
+     />
+     <arg
+          name = "gui"
+          default = "false"
+     />
+     <arg
+          name = "headless"
+          value = "true"
+     />
+     <arg
+          name = "debug"
+          value = "false"
+     />
+     <arg
+          name = "world_name"
+          value = "$(find gazros_test)/worlds/follow_the_line.world"
+     />
+
+     <rosparam command="load"
+          file="$(find gazros_test)/config/diffdrive.yaml"
+     />
+
+     <node
+          name="controller_node"
+          pkg="controller_manager"
+          type="spawner"
+          args="test_drive_controller"
+     />
+
+     <param
+          name = "robot_description"
+          textfile = "$(find gazros_test)/models/diff_drive_model/diff_drive_model.urdf"
+     />
+
+     <node
+          name = "infrared_listener"
+          pkg = "gazros_test"
+          type = "infrared_listener"
+          output = "screen"
+     />
+
+     <node
+          name = "gazebo"
+          pkg = "gazebo_ros"
+          type = "gazebo"
+          args = "$(arg world_name)"
+          respawn = "false"
+     />
+     <node
+          name = "spawn_urdf"
+          pkg = "gazebo_ros"
+          type = "spawn_model"
+          args = "-param robot_description -urdf -z 1 -model diff_drive_model"
+     />
+</launch>

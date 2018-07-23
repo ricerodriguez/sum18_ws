@@ -1,0 +1,2 @@
+gazros_test:velodyne_tut
+-DCATKIN_DEVEL_PREFIX=/home/rice/sum18_ws/devel -DCMAKE_INSTALL_PREFIX=/home/rice/sum18_ws/install -G Unix Makefiles

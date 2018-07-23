@@ -1,0 +1,13 @@
+# Goal Definition:
+float range_data;
+---
+# Result Definition:
+double lin_x
+double lin_y
+double lin_z
+
+double ang_x
+double ang_y
+double ang_z
+---
+# Feedback Definition:

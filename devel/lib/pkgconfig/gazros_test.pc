@@ -1,0 +1,8 @@
+prefix=/home/rice/sum18_ws/devel
+
+Name: gazros_test
+Description: Description of gazros_test
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/rice/sum18_ws/devel/lib 
+Requires: roscpp gazebo_ros

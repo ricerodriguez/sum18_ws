@@ -1,0 +1,8 @@
+prefix=/home/rice/sum18_ws/install
+
+Name: velodyne_tut
+Description: Description of velodyne_tut
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/rice/sum18_ws/install/lib 
+Requires: 

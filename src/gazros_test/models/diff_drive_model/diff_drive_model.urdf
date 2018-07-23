@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+     <robot name="diff_drive_model">
+     <!-- CHASSIS BASE -->
+     <link name="chassis">
+     <origin xyz="0 0 0.0243" rpy="0 0 0"/>
+
+          <!-- CHASSIS BASE -->
+          <collision name='collision'>
+          <!-- Origin of box is the center, so reposition the box so it's
+          in the correct position. Slightly offset x-axis so it aligns
+          with mesh. Move back along y-axis by half the length of box.
+          Move up along z-axis by half the depth of box. -->
+               <!-- <origin xyz="0 0.05715 0.0055" rpy="0 0 1.5707"/> -->
+               <origin xyz="0 0.05715 0.0055" rpy="0 0 1.5707"/>
+               <geometry>
+                    <box size="0.1143 .0762 0.0111"/>
+               </geometry>
+          </collision>
+
+          <visual>
+               <geometry>
+                    <mesh filename="model://diff_drive_base/meshes/diff_drive_base.dae"/>
+               </geometry>
+          </visual>
+
+          <!-- CASTER BALL -->
+          <inertial name='caster_ball_inert'>
+               <origin xyz="0 0.0131 -0.0206" rpy="0 0 0"/>
+               <mass value="0.007"/>
+               <inertia
+                    ixx="0.00000025403175"
+                    iyy="0.00000025403175"
+                    izz="0.00000025403175"
+                    ixy="0"
+                    ixz="0"
+                    iyz="0"/>
+          </inertial>
+
+          <collision name='caster_ball'>
+          <!-- Offset back along y-axis by the length from the design (0.0083 m)
+          + the radius of the sphere. Offset down along the z-axis by length of
+          cylinder (0.0183) + the offset from the center of the the ball to the
+          intersection between it and the cylinder (0.0023m)-->
+               <origin xyz="-0.0020 0.018 -0.0206" rpy="0 0 0"/>
+               <geometry>
+                    <sphere radius="0.009525"/>
+               </geometry>
+          </collision>
+
+          <visual name='caster_ball_visual'>
+               <origin xyz="-0.0020 0.018 -0.0206" rpy="0 0 0"/>
+               <geometry>
+                    <sphere radius="0.009525"/>
+               </geometry>
+          </visual>
+
+          <!-- CASTER BALL CYLINDER -->
+          <collision name='caster_cyl'>
+               <origin xyz="-0.0020 0.018 -0.0095375" rpy="0 0 0"/>
+               <geometry>
+                    <cylinder length="0.0183" radius="0.009525"/>
+               </geometry>
+          </collision>
+
+
+          <visual name='caster_cyl_visual'>
+          <!-- Offset back along y-axis by the length from design (0.0083 m) +
+          the radius of the cylinder. Offset down along z-axis by half the
+          length of the cylinder + the depth from the inner edge of the mesh to
+          the bottom of the box. Offset slightly to the left to align with mesh
+          -->
+               <origin xyz="-0.0020 0.018 -0.0095375" rpy="0 0 0"/>
+               <geometry>
+                    <cylinder length="0.0183" radius="0.009525"/>
+               </geometry>
+          </visual>
+     </link>
+
+<!-- LEFT WHEEL -->
+     <link name="left_wheel">
+     <!-- Offset to the left by half the width of the box + half the
+     width of the wheel + depth of the edge of box. Offset up along
+     z-axis by radius of wheel. Offset yaw to 90 degrees. -->
+     <origin xyz="-0.0462 0.1064 0.03" rpy="0 -1.5707 0"/>
+          <inertial name="inertial">
+               <mass value = "0.0113398"/>
+               <inertia
+                    ixx="0.00000261193393"
+                    iyy="0.00000261193393"
+                    izz="0.00000510291"
+                    ixy="0"
+                    ixz="0"
+                    iyz="0"/>
+          </inertial>
+
+          <collision name="collision">
+               <geometry>
+                    <cylinder radius="0.03" length="0.008"/>
+               </geometry>
+          </collision>
+
+          <visual name="visual">
+               <origin xyz="0 0 0.0035" rpy="-1.5707 0 0"/>
+               <geometry>
+                    <!-- <cylinder radius="0.03" length="0.008"/> -->
+                    <mesh filename="model://diff_drive_base/meshes/wheel.dae"
+                          scale="1.43 0.5 1.43"/>
+               </geometry>
+          </visual>
+
+     </link>
+
+<!-- RIGHT WHEEL -->
+     <link name="right_wheel">
+     <origin xyz="0.0422 0.1064 0.03" rpy="0 -1.5707 0"/>
+          <inertial name="inertial">
+               <mass value = "0.0113398"/>
+               <!-- <mass value = "1"/> -->
+               <inertia
+                    ixx="0.00000261193393"
+                    iyy="0.00000261193393"
+                    izz="0.00000510291"
+                    ixy="0"
+                    ixz="0"
+                    iyz="0"/>
+          </inertial>
+
+          <collision name="collision">
+               <geometry>
+                    <cylinder radius="0.03" length="0.008"/>
+               </geometry>
+          </collision>
+
+          <visual name="visual">
+               <origin xyz="0 0 0.0035" rpy="-1.5707 0 0"/>
+               <geometry>
+                    <!-- <cylinder radius="0.03" length="0.008"/> -->
+                    <mesh filename="model://diff_drive_base/meshes/wheel.dae"
+                          scale="1.43 0.5 1.43"/>
+               </geometry>
+          </visual>
+     </link>
+
+     <!-- LEFT IR SENSOR -->
+          <link name="sens_ir_left_link">
+               <inertial>
+                    <mass value="0.001"/>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <inertia ixx="0.001"  ixy="0"  ixz="0"
+                             iyy="0.001"  iyz="0"
+                             izz="0.001"  />
+               </inertial>
+
+               <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                         <!-- <mesh filename="model://hokuyo/meshes/hokuyo.dae"
+                               scale="0.25 0.25 0.25"/> -->
+                         <box size="0.0127 0.00762 0.00254"/>
+                    </geometry>
+               </visual>
+
+               <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                         <box size="0.0127 0.00762 0.00254"/>
+                    </geometry>
+               </collision>
+          </link>
+
+     <!-- RIGHT IR SENSOR -->
+          <link name="sens_ir_right_link">
+               <inertial>
+                    <mass value="0.001"/>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <inertia ixx="0.001"  ixy="0"  ixz="0"
+                             iyy="0.001"  iyz="0"
+                             izz="0.001"  />
+               </inertial>
+
+               <visual>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                         <!-- <mesh filename="model://hokuyo/meshes/hokuyo.dae"
+                               scale="0.25 0.25 0.25"/> -->
+                         <box size="0.0127 0.00762 0.00254"/>
+                    </geometry>
+               </visual>
+
+               <collision>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                         <box size="0.0127 0.00762 0.00254"/>
+                    </geometry>
+               </collision>
+          </link>
+
+<!-- FORWARD IR SENSOR -->
+     <link name="sens_ir_fwd_link">
+          <inertial>
+               <mass value="0.001"/>
+               <origin xyz="0 0 0" rpy="0 0 0"/>
+               <inertia ixx="0.001"  ixy="0"  ixz="0"
+                        iyy="0.001"  iyz="0"
+                        izz="0.001"  />
+          </inertial>
+
+          <visual>
+               <origin xyz="0 0 0" rpy="0 0 0"/>
+               <geometry>
+                    <mesh filename="model://hokuyo/meshes/hokuyo.dae"
+                          scale="0.25 0.25 0.25"/>
+                    <!-- <box size="0.0127 0.00762 0.00254"/> -->
+               </geometry>
+          </visual>
+
+          <collision>
+               <origin xyz="0 0 0" rpy="0 0 0"/>
+               <geometry>
+                    <box size="0.01 0.01 0.01"/>
+               </geometry>
+          </collision>
+     </link>
+
+<!-- SHELF 1 -->
+     <link name="shelf">
+          <collision name='shelf1_collision'>
+               <geometry>
+                    <box size="0.1143 .0762 0.0111"/>
+               </geometry>
+          </collision>
+
+          <visual>
+               <!-- Shift along x-axis by half the length of the box. Slightly shift
+               along y-axis to align with mesh. Shift down along z-axis by half
+               the depth of the box. Rotate 90 degrees. -->
+               <origin xyz="-0.05715 -0.0025 -0.0055" rpy="0 0 -1.5707"/>
+               <geometry>
+                    <mesh filename="model://diff_drive_base/meshes/diff_drive_shelf.dae"/>
+               </geometry>
+          </visual>
+     </link>
+
+<!-- LEFT IR SENSOR JOINT -->
+     <joint type="fixed" name="sens_ir_left_joint">
+          <origin xyz="-0.02 0.0178 0" rpy="0 0 1.5707"/>
+          <!-- <origin xyz="0 0 0" rpy="0 0 1.5707"/> -->
+          <parent link="chassis"/>
+          <child link="sens_ir_left_link"/>
+     </joint>
+
+<!-- RIGHT IR SENSOR JOINT -->
+     <joint type="fixed" name="sens_ir_right_joint">
+          <origin xyz="0.0175 0.0178 0" rpy="0 0 1.5707"/>
+          <!-- <origin xyz="0 0 0" rpy="0 0 1.5707"/> -->
+          <parent link="chassis"/>
+          <child link="sens_ir_right_link"/>
+     </joint>
+
+<!-- FORWARD IR SENSOR JOINT -->
+     <joint type="fixed" name="sens_ir_fwd_joint">
+          <!-- <origin xyz="-0.05715 0 0" rpy="0 0 3.1416"/> -->
+          <origin xyz="-0.075 0 0" rpy="0 0 3.1416"/>
+          <!-- <origin xyz="0 0 0" rpy="0 0 1.5707"/> -->
+          <parent link="shelf"/>
+          <child link="sens_ir_fwd_link"/>
+     </joint>
+
+<!-- LEFT JOINT -->
+     <joint type="continuous" name="left_wheel_hinge">
+          <origin xyz="-0.0462 0.1064 0" rpy="0 -1.5707 0"/>
+          <parent link="chassis"/>
+          <child link="left_wheel"/>
+          <axis xyz="0 0 1"/>
+          <limit effort="10" velocity="1.0"/>
+     </joint>
+
+<!-- RIGHT JOINT -->
+     <joint type="continuous" name="right_wheel_hinge">
+          <origin xyz="0.0422 0.1064 0" rpy="0 -1.5707 0"/>
+          <parent link="chassis"/>
+          <child link="right_wheel"/>
+          <axis xyz="0 0 1"/>
+          <limit effort="10" velocity="1.0"/>
+     </joint>
+
+<!-- SHELF ANCHOR -->
+     <joint type="fixed" name="shelf_anchor">
+          <parent link="chassis"/>
+          <child link="shelf"/>
+          <!-- Same position as chassis base, but up by 1.5x depth of box -->
+          <origin xyz="-0.0025 0.05715 0.01665" rpy="0 0 1.5707"/>
+     </joint>
+
+     <gazebo reference="left_wheel">
+          <mu1 value="0"/>
+          <mu2 value="0"/>
+     </gazebo>
+
+     <gazebo reference="right_wheel">
+          <mu1 value="0"/>
+          <mu2 value="0"/>
+     </gazebo>
+
+     <gazebo reference="chassis">
+          <material>Gazebo/Red</material>
+     </gazebo>
+
+     <gazebo reference="shelf">
+          <material>Gazebo/Red</material>
+     </gazebo>
+
+     <gazebo reference="sens_ir_left_link">
+          <sensor type="ray" name="pololu_qtr_sensor_left">
+               <visualize>true</visualize>
+               <pose>0 0 0 0 0 0</pose>
+               <update_rate>40</update_rate>
+               <ray>
+                    <scan>
+                         <vertical>
+                              <samples>1</samples>
+                              <resolution>1</resolution>
+                              <min_angle>-1.5707</min_angle>
+                              <max_angle>0</max_angle>
+                         </vertical>
+                    </scan>
+               <range>
+                    <min>0</min>
+                    <max>0.95</max>
+                    <resolution>0.01</resolution>
+               </range>
+               <noise>
+                    <type>gaussian</type>
+                    <!-- Noise parameters based on published spec for Hokuyo laser
+                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                    reading. -->
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+               </noise>
+               </ray>
+          <plugin name="gazebo_ros_range_left" filename="libgazebo_ros_range.so">
+               <topicName>/test_drive_controller/sens_ir/left</topicName>
+               <frameName>sens_ir_left_link</frameName>
+          </plugin>
+          </sensor>
+     </gazebo>
+
+     <gazebo reference="sens_ir_right_link">
+          <sensor type="ray" name="pololu_qtr_sensor_right">
+               <visualize>true</visualize>
+               <pose>0 0 0 0 0 0</pose>
+               <update_rate>40</update_rate>
+               <ray>
+                    <scan>
+                         <vertical>
+                              <samples>1</samples>
+                              <resolution>1</resolution>
+                              <min_angle>-1.5707</min_angle>
+                              <max_angle>0</max_angle>
+                         </vertical>
+                    </scan>
+               <range>
+                    <min>0</min>
+                    <max>0.95</max>
+                    <resolution>0.01</resolution>
+               </range>
+               <noise>
+                    <type>gaussian</type>
+                    <!-- Noise parameters based on published spec for Hokuyo laser
+                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                    reading. -->
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+               </noise>
+               </ray>
+          <plugin name="gazebo_ros_range_right" filename="libgazebo_ros_range.so">
+               <topicName>/test_drive_controller/sens_ir/right</topicName>
+               <frameName>sens_ir_right_link</frameName>
+          </plugin>
+          </sensor>
+     </gazebo>
+
+     <gazebo reference="sens_ir_fwd_link">
+          <sensor type="ray" name="pololu_qtr_sensor_fwd">
+               <visualize>true</visualize>
+               <pose>0 0 0 0 0 0</pose>
+               <update_rate>40</update_rate>
+               <ray>
+                    <scan>
+                         <vertical>
+                              <samples>1</samples>
+                              <resolution>1</resolution>
+                              <min_angle>0</min_angle>
+                              <max_angle>0</max_angle>
+                         </vertical>
+                    </scan>
+               <range>
+                    <min>0.005</min>
+                    <max>0.95</max>
+                    <resolution>0.01</resolution>
+               </range>
+               <noise>
+                    <type>gaussian</type>
+                    <!-- Noise parameters based on published spec for Hokuyo laser
+                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                    reading. -->
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+               </noise>
+               </ray>
+          <plugin name="gazebo_ros_range_fwd" filename="libgazebo_ros_laser.so">
+               <topicName>/test_drive_controller/sens_ir/fwd</topicName>
+               <frameName>sens_ir_fwd_link</frameName>
+          </plugin>
+          </sensor>
+     </gazebo>
+
+     <transmission name="left_wheel_trans">
+          <type>transmission_interface/SimpleTransmission</type>
+          <actuator name="left_wheel_motor">
+               <mechanicalReduction>1</mechanicalReduction>
+          </actuator>
+          <joint name="left_wheel_hinge">
+               <hardwareInterface>VelocityJointInterface</hardwareInterface>
+          </joint>
+     </transmission>
+
+     <transmission name="right_wheel_trans">
+          <type>transmission_interface/SimpleTransmission</type>
+          <actuator name="right_wheel_motor">
+               <mechanicalReduction>1</mechanicalReduction>
+          </actuator>
+          <joint name="right_wheel_hinge">
+               <hardwareInterface>VelocityJointInterface</hardwareInterface>
+          </joint>
+     </transmission>
+
+     <gazebo>
+          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+               <robotNamespace>/</robotNamespace>
+          </plugin>
+     </gazebo>
+
+</robot>
