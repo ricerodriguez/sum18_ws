@@ -20,7 +20,6 @@ private:
      void initializeSubscribers();
      void initializePublishers();
      void sensSubscriberCallback(const constIllumPtr&);
-
 };
 
 #endif

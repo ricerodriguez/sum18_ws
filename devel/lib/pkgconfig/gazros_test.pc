@@ -3,6 +3,6 @@ prefix=/home/rice/sum18_ws/devel
 Name: gazros_test
 Description: Description of gazros_test
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/rice/sum18_ws/src/gazros_test/include
 Libs: -L/home/rice/sum18_ws/devel/lib 
-Requires: roscpp gazebo_ros
+Requires: gazebo_plugins gazebo_ros roscpp roscpp gazebo_ros

@@ -344,12 +344,12 @@
                <camera name='test'>
                     <horizontal_fov>1.2</horizontal_fov>
                     <image>
-                         <width>0.01</width>
-                         <height>0.01</height>
+                         <width>2</width>
+                         <height>2</height>
                     </image>
                     <clip>
                          <near>0.0001</near>
-                         <far>0.95</far>
+                         <far>10</far>
                     </clip>
                     <noise>
                          <type>gaussian</type>

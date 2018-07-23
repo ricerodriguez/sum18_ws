@@ -1167,6 +1167,227 @@ actionlib_msgs_generate_messages_lisp/fast:
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named bond_generate_messages_lisp
+
+# Build rule for target.
+bond_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_lisp
+.PHONY : bond_generate_messages_lisp
+
+# fast build rule for target.
+bond_generate_messages_lisp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/bond_generate_messages_lisp.dir/build.make gazros_test/CMakeFiles/bond_generate_messages_lisp.dir/build
+.PHONY : bond_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_eus
+
+# Build rule for target.
+bond_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_eus
+.PHONY : bond_generate_messages_eus
+
+# fast build rule for target.
+bond_generate_messages_eus/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/bond_generate_messages_eus.dir/build.make gazros_test/CMakeFiles/bond_generate_messages_eus.dir/build
+.PHONY : bond_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_lisp
+
+# Build rule for target.
+nodelet_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_lisp
+.PHONY : nodelet_generate_messages_lisp
+
+# fast build rule for target.
+nodelet_generate_messages_lisp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir/build
+.PHONY : nodelet_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_cpp
+
+# Build rule for target.
+bond_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_cpp
+.PHONY : bond_generate_messages_cpp
+
+# fast build rule for target.
+bond_generate_messages_cpp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/build.make gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/build
+.PHONY : bond_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_eus
+
+# Build rule for target.
+nav_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_eus
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make gazros_test/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_lisp
+
+# Build rule for target.
+nav_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_lisp
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make gazros_test/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_nodejs
+
+# Build rule for target.
+nodelet_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_nodejs
+.PHONY : nodelet_generate_messages_nodejs
+
+# fast build rule for target.
+nodelet_generate_messages_nodejs/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make gazros_test/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
+.PHONY : nodelet_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named gazebo_plugins_gencfg
+
+# Build rule for target.
+gazebo_plugins_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gazebo_plugins_gencfg
+.PHONY : gazebo_plugins_gencfg
+
+# fast build rule for target.
+gazebo_plugins_gencfg/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/gazebo_plugins_gencfg.dir/build.make gazros_test/CMakeFiles/gazebo_plugins_gencfg.dir/build
+.PHONY : gazebo_plugins_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_cpp
+
+# Build rule for target.
+nodelet_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_cpp
+.PHONY : nodelet_generate_messages_cpp
+
+# fast build rule for target.
+nodelet_generate_messages_cpp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make gazros_test/CMakeFiles/nodelet_generate_messages_cpp.dir/build
+.PHONY : nodelet_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_eus
+
+# Build rule for target.
+nodelet_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_eus
+.PHONY : nodelet_generate_messages_eus
+
+# fast build rule for target.
+nodelet_generate_messages_eus/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nodelet_generate_messages_eus.dir/build.make gazros_test/CMakeFiles/nodelet_generate_messages_eus.dir/build
+.PHONY : nodelet_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_nodejs
+
+# Build rule for target.
+bond_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_nodejs
+.PHONY : bond_generate_messages_nodejs
+
+# fast build rule for target.
+bond_generate_messages_nodejs/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/bond_generate_messages_nodejs.dir/build.make gazros_test/CMakeFiles/bond_generate_messages_nodejs.dir/build
+.PHONY : bond_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named tf_broadcaster
+
+# Build rule for target.
+tf_broadcaster: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tf_broadcaster
+.PHONY : tf_broadcaster
+
+# fast build rule for target.
+tf_broadcaster/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/tf_broadcaster.dir/build.make gazros_test/CMakeFiles/tf_broadcaster.dir/build
+.PHONY : tf_broadcaster/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_nodejs
+
+# Build rule for target.
+nav_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_nodejs
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make gazros_test/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_py
+
+# Build rule for target.
+nav_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_py
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make gazros_test/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_cpp
+
+# Build rule for target.
+nav_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_cpp
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make gazros_test/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_py
+
+# Build rule for target.
+nodelet_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_py
+.PHONY : nodelet_generate_messages_py
+
+# fast build rule for target.
+nodelet_generate_messages_py/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/nodelet_generate_messages_py.dir/build.make gazros_test/CMakeFiles/nodelet_generate_messages_py.dir/build
+.PHONY : nodelet_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named light_sensor_gazebo
+
+# Build rule for target.
+light_sensor_gazebo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 light_sensor_gazebo
+.PHONY : light_sensor_gazebo
+
+# fast build rule for target.
+light_sensor_gazebo/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/light_sensor_gazebo.dir/build.make gazros_test/CMakeFiles/light_sensor_gazebo.dir/build
+.PHONY : light_sensor_gazebo/fast
+
+#=============================================================================
 # Target rules for targets named tf_listener
 
 # Build rule for target.
@@ -1193,17 +1414,17 @@ infrared_listener/fast:
 .PHONY : infrared_listener/fast
 
 #=============================================================================
-# Target rules for targets named tf_broadcaster
+# Target rules for targets named bond_generate_messages_py
 
 # Build rule for target.
-tf_broadcaster: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tf_broadcaster
-.PHONY : tf_broadcaster
+bond_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_py
+.PHONY : bond_generate_messages_py
 
 # fast build rule for target.
-tf_broadcaster/fast:
-	$(MAKE) -f gazros_test/CMakeFiles/tf_broadcaster.dir/build.make gazros_test/CMakeFiles/tf_broadcaster.dir/build
-.PHONY : tf_broadcaster/fast
+bond_generate_messages_py/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/bond_generate_messages_py.dir/build.make gazros_test/CMakeFiles/bond_generate_messages_py.dir/build
+.PHONY : bond_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named timid_robot
@@ -1308,9 +1529,26 @@ help:
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... bond_generate_messages_lisp"
+	@echo "... bond_generate_messages_eus"
+	@echo "... nodelet_generate_messages_lisp"
+	@echo "... bond_generate_messages_cpp"
+	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... nodelet_generate_messages_nodejs"
+	@echo "... gazebo_plugins_gencfg"
+	@echo "... nodelet_generate_messages_cpp"
+	@echo "... nodelet_generate_messages_eus"
+	@echo "... bond_generate_messages_nodejs"
+	@echo "... tf_broadcaster"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... nav_msgs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... nodelet_generate_messages_py"
+	@echo "... light_sensor_gazebo"
 	@echo "... tf_listener"
 	@echo "... infrared_listener"
-	@echo "... tf_broadcaster"
+	@echo "... bond_generate_messages_py"
 	@echo "... timid_robot"
 .PHONY : help
 
