@@ -154,8 +154,6 @@
                <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                         <!-- <mesh filename="model://hokuyo/meshes/hokuyo.dae"
-                               scale="0.25 0.25 0.25"/> -->
                          <box size="0.0127 0.00762 0.00254"/>
                     </geometry>
                </visual>
@@ -181,8 +179,6 @@
                <visual>
                     <origin xyz="0 0 0" rpy="0 0 0"/>
                     <geometry>
-                         <!-- <mesh filename="model://hokuyo/meshes/hokuyo.dae"
-                               scale="0.25 0.25 0.25"/> -->
                          <box size="0.0127 0.00762 0.00254"/>
                     </geometry>
                </visual>
@@ -208,14 +204,15 @@
           <visual>
                <origin xyz="0 0 0" rpy="0 0 0"/>
                <geometry>
-                    <mesh filename="model://hokuyo/meshes/hokuyo.dae"
-                          scale="0.25 0.25 0.25"/>
+                    <!-- <mesh filename="model://hokuyo/meshes/hokuyo.dae"
+                          scale="0.25 0.25 0.25"/> -->
                     <!-- <box size="0.0127 0.00762 0.00254"/> -->
+                    <box size="0.01 0.01 0.01"/>
                </geometry>
           </visual>
 
           <collision>
-               <origin xyz="0 0 0" rpy="0 0 0"/>
+               <origin xyz="-0.01 0 0" rpy="0 0 0"/>
                <geometry>
                     <box size="0.01 0.01 0.01"/>
                </geometry>
@@ -244,7 +241,6 @@
 <!-- LEFT IR SENSOR JOINT -->
      <joint type="fixed" name="sens_ir_left_joint">
           <origin xyz="-0.02 0.0178 0" rpy="0 0 1.5707"/>
-          <!-- <origin xyz="0 0 0" rpy="0 0 1.5707"/> -->
           <parent link="chassis"/>
           <child link="sens_ir_left_link"/>
      </joint>
@@ -252,7 +248,6 @@
 <!-- RIGHT IR SENSOR JOINT -->
      <joint type="fixed" name="sens_ir_right_joint">
           <origin xyz="0.0175 0.0178 0" rpy="0 0 1.5707"/>
-          <!-- <origin xyz="0 0 0" rpy="0 0 1.5707"/> -->
           <parent link="chassis"/>
           <child link="sens_ir_right_link"/>
      </joint>
@@ -311,73 +306,63 @@
      </gazebo>
 
      <gazebo reference="sens_ir_left_link">
-          <sensor type="ray" name="pololu_qtr_sensor_left">
+          <sensor type="camera" name="pololu_qtr_sensor_left">
                <visualize>true</visualize>
                <pose>0 0 0 0 0 0</pose>
                <update_rate>40</update_rate>
-               <ray>
-                    <scan>
-                         <vertical>
-                              <samples>1</samples>
-                              <resolution>1</resolution>
-                              <min_angle>-1.5707</min_angle>
-                              <max_angle>0</max_angle>
-                         </vertical>
-                    </scan>
-               <range>
-                    <min>0</min>
-                    <max>0.95</max>
-                    <resolution>0.01</resolution>
-               </range>
-               <noise>
-                    <type>gaussian</type>
-                    <!-- Noise parameters based on published spec for Hokuyo laser
-                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-                    reading. -->
-                    <mean>0.0</mean>
-                    <stddev>0.01</stddev>
-               </noise>
-               </ray>
-          <plugin name="gazebo_ros_range_left" filename="libgazebo_ros_range.so">
-               <topicName>/test_drive_controller/sens_ir/left</topicName>
-               <frameName>sens_ir_left_link</frameName>
+               <camera name='test'>
+                    <horizontal_fov>1.2</horizontal_fov>
+                    <image>
+                         <width>2</width>
+                         <height>2</height>
+                    </image>
+                    <clip>
+                         <near>0.0001</near>
+                         <far>10</far>
+                    </clip>
+                    <noise>
+                         <type>gaussian</type>
+                         <mean>0.0</mean>
+                         <stddev>0.05</stddev>
+                    </noise>
+               </camera>
+               <plugin name="gazebo_light_right" filename="liblight_sensor_gazebo.so">
+                    <updateRate>40</updateRate>
+                    <baseline>0</baseline>
+                    <topicName>/test_drive_controller/sens_ir/left</topicName>
+                    <illuminanceTopicName>ir_left</illuminanceTopicName>
+                    <frameName>sens_ir_left_link</frameName>
           </plugin>
           </sensor>
      </gazebo>
 
      <gazebo reference="sens_ir_right_link">
-          <sensor type="ray" name="pololu_qtr_sensor_right">
+          <sensor type="camera" name="pololu_qtr_sensor_right">
                <visualize>true</visualize>
                <pose>0 0 0 0 0 0</pose>
                <update_rate>40</update_rate>
-               <ray>
-                    <scan>
-                         <vertical>
-                              <samples>1</samples>
-                              <resolution>1</resolution>
-                              <min_angle>-1.5707</min_angle>
-                              <max_angle>0</max_angle>
-                         </vertical>
-                    </scan>
-               <range>
-                    <min>0</min>
-                    <max>0.95</max>
-                    <resolution>0.01</resolution>
-               </range>
-               <noise>
-                    <type>gaussian</type>
-                    <!-- Noise parameters based on published spec for Hokuyo laser
-                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-                    reading. -->
-                    <mean>0.0</mean>
-                    <stddev>0.01</stddev>
-               </noise>
-               </ray>
-          <plugin name="gazebo_ros_range_right" filename="libgazebo_ros_range.so">
-               <topicName>/test_drive_controller/sens_ir/right</topicName>
-               <frameName>sens_ir_right_link</frameName>
+               <camera name='test'>
+                    <horizontal_fov>1.2</horizontal_fov>
+                    <image>
+                         <width>0.01</width>
+                         <height>0.01</height>
+                    </image>
+                    <clip>
+                         <near>0.0001</near>
+                         <far>0.95</far>
+                    </clip>
+                    <noise>
+                         <type>gaussian</type>
+                         <mean>0.0</mean>
+                         <stddev>0.05</stddev>
+                    </noise>
+               </camera>
+               <plugin name="gazebo_light_right" filename="liblight_sensor_gazebo.so">
+                    <updateRate>40</updateRate>
+                    <baseline>0</baseline>
+                    <topicName>/test_drive_controller/sens_ir/right</topicName>
+                    <illuminanceTopicName>ir_right</illuminanceTopicName>
+                    <frameName>sens_ir_right_link</frameName>
           </plugin>
           </sensor>
      </gazebo>
@@ -403,10 +388,6 @@
                </range>
                <noise>
                     <type>gaussian</type>
-                    <!-- Noise parameters based on published spec for Hokuyo laser
-                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-                    reading. -->
                     <mean>0.0</mean>
                     <stddev>0.01</stddev>
                </noise>

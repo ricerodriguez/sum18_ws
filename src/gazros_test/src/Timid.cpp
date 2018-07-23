@@ -69,60 +69,22 @@ void TimidClass::initializePublishers() {
 }
 
 void TimidClass::runAway() {
-     // this->initializePublishers();
-     float temp_range;
-     bool new_val = (temp_range!=this->range_)?true:false;
      geometry_msgs::Twist msg;
      if (this->range_ > 0.95 || this->range_ < 0.03) {
-          if (new_val) {
-               ROS_INFO("Range (%f) discarded",this->range_);
-               temp_range = this->range_;
-          } else {
-               temp_range = this->range_;
-          }
-     } else if (this->range_ < 0.95 && this->range_ > 0.03) {
-          if (new_val) {
-               ROS_INFO("AAH! Object is %f meters ahead!! Scanning for clear path...",this->range_);
-               msg.angular.z = -0.1;
-               msg.linear.x = 0.0;
-               msg.linear.y = 0.0;
-               msg.linear.z = 0.0;
-               temp_range = this->range_;
-          } else {
-               msg.angular.z = -0.1;
-               msg.linear.x = 0.0;
-               msg.linear.y = 0.0;
-               msg.linear.z = 0.0;
-               temp_range = this->range_;
-          }
+          ROS_INFO("Out of range, going straight.");
+          msg.linear.x = -0.1;
+          msg.linear.y = 0.0;
+          msg.linear.z = 0.0;
+          msg.angular.x = 0.0;
+          msg.angular.z = 0.0;
+          msg.angular.y = 0.0;
      } else {
-          if (new_val) {
-               ROS_INFO("Going straight! Nothing ahead as far as I can see.");
-               temp_range = this->range_;
-          } else {
-               temp_range = this->range_;
-          }
+          ROS_INFO("AAAAH! Something is %f meters ahead!! Scanning for clear path...",this->range_);
+          msg.angular.z = 0.1;
+          msg.linear.x = 0.0;
+          msg.linear.y = 0.0;
+          msg.linear.z = 0.0;
      }
-     // if (this->range_ == 0.95) {
-     //      ROS_INFO("Going straight! Nothing ahead as far as I can see.");
-     //      msg.linear.x = -0.1;
-     //      msg.linear.y = 0.0;
-     //      msg.linear.z = 0.0;
-     //
-     //      msg.angular.x = 0.0;
-     //      msg.angular.y = 0.0;
-     //      msg.angular.z = 0.0;
-     // } else if (this->range_ < 0.95 && this->range_ > 0.03) {
-     //      ROS_INFO("Running away! Object is %f meters ahead!",this->range_);
-     //      msg.angular.z = -0.1;
-     //      msg.linear.x = 0.0;
-     //      msg.linear.y = 0.0;
-     //      msg.linear.z = 0.0;
-     // } else {
-     //      ROS_INFO("Range (%f) discarded.",this->range_);
-     //      return;
-     // }
-
      pub_.publish(msg);
 }
 
