@@ -33,13 +33,15 @@ add_library(light_sensor_gazebo src/light_sensor_plugin.cpp)
 
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
 add_executable(tf_listener src/tf_listener.cpp)
-add_executable(infrared_listener src/IRListener.cpp)
 add_executable(timid_robot src/Timid.cpp)
+add_executable(line_follower src/LineFollower.cpp)
+# add_executable(infrared_listener src/IRListener.cpp)
 
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 target_link_libraries(tf_listener ${catkin_LIBRARIES})
-target_link_libraries(infrared_listener ${catkin_LIBRARIES})
 target_link_libraries(timid_robot ${catkin_LIBRARIES})
+target_link_libraries(line_follower ${catkin_LIBRARIES})
 target_link_libraries(light_sensor_gazebo ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} CameraPlugin)
+# target_link_libraries(infrared_listener ${catkin_LIBRARIES})
 
 add_dependencies(infrared_listener sensor_msgs_generate_messages_cpp)

@@ -41,9 +41,9 @@
      />
 
      <node
-          name = "infrared_listener"
+          name = "line_follower"
           pkg = "gazros_test"
-          type = "infrared_listener"
+          type = "line_follower"
           output = "screen"
      />
 
