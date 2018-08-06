@@ -44,4 +44,4 @@ target_link_libraries(line_follower ${catkin_LIBRARIES})
 target_link_libraries(light_sensor_gazebo ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} CameraPlugin)
 # target_link_libraries(infrared_listener ${catkin_LIBRARIES})
 
-add_dependencies(infrared_listener sensor_msgs_generate_messages_cpp)
+# add_dependencies(infrared_listener sensor_msgs_generate_messages_cpp)

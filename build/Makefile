@@ -1206,6 +1206,19 @@ nodelet_generate_messages_lisp/fast:
 .PHONY : nodelet_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named line_follower
+
+# Build rule for target.
+line_follower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 line_follower
+.PHONY : line_follower
+
+# fast build rule for target.
+line_follower/fast:
+	$(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/build
+.PHONY : line_follower/fast
+
+#=============================================================================
 # Target rules for targets named bond_generate_messages_cpp
 
 # Build rule for target.
@@ -1401,19 +1414,6 @@ tf_listener/fast:
 .PHONY : tf_listener/fast
 
 #=============================================================================
-# Target rules for targets named infrared_listener
-
-# Build rule for target.
-infrared_listener: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 infrared_listener
-.PHONY : infrared_listener
-
-# fast build rule for target.
-infrared_listener/fast:
-	$(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/build
-.PHONY : infrared_listener/fast
-
-#=============================================================================
 # Target rules for targets named bond_generate_messages_py
 
 # Build rule for target.
@@ -1532,6 +1532,7 @@ help:
 	@echo "... bond_generate_messages_lisp"
 	@echo "... bond_generate_messages_eus"
 	@echo "... nodelet_generate_messages_lisp"
+	@echo "... line_follower"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... nav_msgs_generate_messages_lisp"
@@ -1547,7 +1548,6 @@ help:
 	@echo "... nodelet_generate_messages_py"
 	@echo "... light_sensor_gazebo"
 	@echo "... tf_listener"
-	@echo "... infrared_listener"
 	@echo "... bond_generate_messages_py"
 	@echo "... timid_robot"
 .PHONY : help

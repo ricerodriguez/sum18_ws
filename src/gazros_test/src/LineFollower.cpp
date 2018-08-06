@@ -9,8 +9,8 @@ LineFollower::LineFollower(ros::NodeHandle* nodehandle):nh_(*nodehandle) {
 
 void LineFollower::initializeSubscribers() {
      ROS_INFO("Initializing subscribers...");
-     sub_left_ = nh_.subscribe("/test_drive_controller/sens_ir/left",100,&LineFollower::leftSubscriberCallback, this);
-     sub_right_ = nh_.subscribe("/test_drive_controller/sens_ir/right",100,&LineFollower::rightSubscriberCallback, this);
+     sub_left_ = nh_.subscribe("/sens_ir/left",100,&LineFollower::leftSubscriberCallback, this);
+     sub_right_ = nh_.subscribe("/sens_ir/right",100,&LineFollower::rightSubscriberCallback, this);
 }
 
 void LineFollower::leftSubscriberCallback(const constIllumPtr &msg) {
@@ -26,16 +26,16 @@ void LineFollower::rightSubscriberCallback(const constIllumPtr &msg) {
 void LineFollower::navCenter() {
      if (this->infraleft_ && !this->infraright_) {
           // If left sensor detects but right sensor does not, set nav to go left
-          dir_ = "left";
+          dir_ = LEFT;
      } else if (!this->infraleft_ && this->infraright_) {
           // If right sensor detects but left sensor does not, set nav to go right
-          dir_ = "right";
+          dir_ = RIGHT;
      } else if (this->infraleft_ && this->infraright_) {
           // If both sensors are detecting, stop
-          dir_ = "stop";
+          dir_ = STOP;
      } else if (!this->infraleft_ && !this->infraright_) {
           // If neither sensor is detecting, keep going straight
-          dir_ = "forward";
+          dir_ = FWD;
      }
 }
 
@@ -61,31 +61,33 @@ void LineFollower::initializePublishers() {
 }
 
 void LineFollower::followTheLine() {
+     geometry_msgs::Twist msg;
      switch (dir_) {
-          case "left":
+          case LEFT:
                ROS_INFO("Going left!");
                msg.linear.x = -0.1;
-               msg.angular.z = 0.1;
+               msg.angular.z = 0.2;
                break;
-          case "right":
+          case RIGHT:
                ROS_INFO("Going right!");
                msg.linear.x = -0.1;
-               msg.angular.z = -0.1;
+               msg.angular.z = -0.2;
                break;
-          case "stop":
+          case STOP:
                ROS_INFO("Stop!");
                msg.linear.x = 0.0;
                msg.angular.z = 0.0;
                break;
-          case "forward":
+          case FWD:
                ROS_INFO("Going straight!");
                msg.linear.x = -0.1;
                msg.angular.z = 0.0;
      }
+     pub_.publish(msg);
 }
 
 int main(int argc, char** argv) {
-     ros::init(argc, arv, "line_follower");
+     ros::init(argc, argv, "line_follower");
      ros::NodeHandle nh;
 
      ROS_INFO("Instantiating an object of type LineFollower...");

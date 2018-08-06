@@ -7,13 +7,16 @@
 #include <string>
 
 typedef sensor_msgs::Illuminance::ConstPtr constIllumPtr;
-
+#define STOP  0
+#define FWD   1
+#define LEFT  2
+#define RIGHT 3
 
 class LineFollower {
 public:
      LineFollower(ros::NodeHandle* nodehandle);
      void followTheLine();
-     std::string navCenter();
+     void navCenter();
 private:
      ros::NodeHandle nh_;
      ros::Subscriber sub_left_, sub_right_;
@@ -23,7 +26,8 @@ private:
      void initializePublishers();
      void leftSubscriberCallback(const constIllumPtr&);
      void rightSubscriberCallback(const constIllumPtr&);
-     std::string dir_;
+     // const int stop = 0, forward = 1, left = 2, right = 3;
+     int dir_;
      double infraleft_, infraright_;
 };
 

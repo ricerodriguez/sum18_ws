@@ -211,6 +211,21 @@ nodelet_generate_messages_lisp/fast:
 .PHONY : nodelet_generate_messages_lisp/fast
 
 # Convenience name for target.
+gazros_test/CMakeFiles/line_follower.dir/rule:
+	cd /home/rice/sum18_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/line_follower.dir/rule
+.PHONY : gazros_test/CMakeFiles/line_follower.dir/rule
+
+# Convenience name for target.
+line_follower: gazros_test/CMakeFiles/line_follower.dir/rule
+
+.PHONY : line_follower
+
+# fast build rule for target.
+line_follower/fast:
+	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/build
+.PHONY : line_follower/fast
+
+# Convenience name for target.
 gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/rule:
 	cd /home/rice/sum18_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/rule
 .PHONY : gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/rule
@@ -436,21 +451,6 @@ tf_listener/fast:
 .PHONY : tf_listener/fast
 
 # Convenience name for target.
-gazros_test/CMakeFiles/infrared_listener.dir/rule:
-	cd /home/rice/sum18_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/infrared_listener.dir/rule
-.PHONY : gazros_test/CMakeFiles/infrared_listener.dir/rule
-
-# Convenience name for target.
-infrared_listener: gazros_test/CMakeFiles/infrared_listener.dir/rule
-
-.PHONY : infrared_listener
-
-# fast build rule for target.
-infrared_listener/fast:
-	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/build
-.PHONY : infrared_listener/fast
-
-# Convenience name for target.
 gazros_test/CMakeFiles/bond_generate_messages_py.dir/rule:
 	cd /home/rice/sum18_ws/build && $(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/bond_generate_messages_py.dir/rule
 .PHONY : gazros_test/CMakeFiles/bond_generate_messages_py.dir/rule
@@ -480,32 +480,32 @@ timid_robot/fast:
 	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/timid_robot.dir/build.make gazros_test/CMakeFiles/timid_robot.dir/build
 .PHONY : timid_robot/fast
 
-src/IRListener.o: src/IRListener.cpp.o
+src/LineFollower.o: src/LineFollower.cpp.o
 
-.PHONY : src/IRListener.o
+.PHONY : src/LineFollower.o
 
 # target to build an object file
-src/IRListener.cpp.o:
-	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/src/IRListener.cpp.o
-.PHONY : src/IRListener.cpp.o
+src/LineFollower.cpp.o:
+	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/src/LineFollower.cpp.o
+.PHONY : src/LineFollower.cpp.o
 
-src/IRListener.i: src/IRListener.cpp.i
+src/LineFollower.i: src/LineFollower.cpp.i
 
-.PHONY : src/IRListener.i
+.PHONY : src/LineFollower.i
 
 # target to preprocess a source file
-src/IRListener.cpp.i:
-	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/src/IRListener.cpp.i
-.PHONY : src/IRListener.cpp.i
+src/LineFollower.cpp.i:
+	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/src/LineFollower.cpp.i
+.PHONY : src/LineFollower.cpp.i
 
-src/IRListener.s: src/IRListener.cpp.s
+src/LineFollower.s: src/LineFollower.cpp.s
 
-.PHONY : src/IRListener.s
+.PHONY : src/LineFollower.s
 
 # target to generate assembly for a file
-src/IRListener.cpp.s:
-	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/src/IRListener.cpp.s
-.PHONY : src/IRListener.cpp.s
+src/LineFollower.cpp.s:
+	cd /home/rice/sum18_ws/build && $(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/src/LineFollower.cpp.s
+.PHONY : src/LineFollower.cpp.s
 
 src/Timid.o: src/Timid.cpp.o
 
@@ -628,6 +628,7 @@ help:
 	@echo "... bond_generate_messages_lisp"
 	@echo "... bond_generate_messages_eus"
 	@echo "... nodelet_generate_messages_lisp"
+	@echo "... line_follower"
 	@echo "... bond_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... install"
@@ -645,13 +646,12 @@ help:
 	@echo "... nodelet_generate_messages_py"
 	@echo "... light_sensor_gazebo"
 	@echo "... tf_listener"
-	@echo "... infrared_listener"
 	@echo "... bond_generate_messages_py"
 	@echo "... timid_robot"
 	@echo "... install/strip"
-	@echo "... src/IRListener.o"
-	@echo "... src/IRListener.i"
-	@echo "... src/IRListener.s"
+	@echo "... src/LineFollower.o"
+	@echo "... src/LineFollower.i"
+	@echo "... src/LineFollower.s"
 	@echo "... src/Timid.o"
 	@echo "... src/Timid.i"
 	@echo "... src/Timid.s"

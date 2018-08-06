@@ -2651,10 +2651,10 @@ clean: velodyne_tut/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 # Directory level rules for directory gazros_test
 
 # Convenience name for "all" pass in the directory.
+gazros_test/all: gazros_test/CMakeFiles/line_follower.dir/all
 gazros_test/all: gazros_test/CMakeFiles/tf_broadcaster.dir/all
 gazros_test/all: gazros_test/CMakeFiles/light_sensor_gazebo.dir/all
 gazros_test/all: gazros_test/CMakeFiles/tf_listener.dir/all
-gazros_test/all: gazros_test/CMakeFiles/infrared_listener.dir/all
 gazros_test/all: gazros_test/CMakeFiles/timid_robot.dir/all
 
 .PHONY : gazros_test/all
@@ -2663,6 +2663,7 @@ gazros_test/all: gazros_test/CMakeFiles/timid_robot.dir/all
 gazros_test/clean: gazros_test/CMakeFiles/bond_generate_messages_lisp.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/bond_generate_messages_eus.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+gazros_test/clean: gazros_test/CMakeFiles/line_follower.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/bond_generate_messages_cpp.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
@@ -2678,7 +2679,6 @@ gazros_test/clean: gazros_test/CMakeFiles/nav_msgs_generate_messages_cpp.dir/cle
 gazros_test/clean: gazros_test/CMakeFiles/nodelet_generate_messages_py.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/light_sensor_gazebo.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/tf_listener.dir/clean
-gazros_test/clean: gazros_test/CMakeFiles/infrared_listener.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/bond_generate_messages_py.dir/clean
 gazros_test/clean: gazros_test/CMakeFiles/timid_robot.dir/clean
 
@@ -2782,6 +2782,43 @@ gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir/clean:
 
 # clean rule for target.
 clean: gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target gazros_test/CMakeFiles/line_follower.dir
+
+# All Build rule for target.
+gazros_test/CMakeFiles/line_follower.dir/all:
+	$(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/depend
+	$(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rice/sum18_ws/build/CMakeFiles --progress-num=14,15 "Built target line_follower"
+.PHONY : gazros_test/CMakeFiles/line_follower.dir/all
+
+# Include target in all.
+all: gazros_test/CMakeFiles/line_follower.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+gazros_test/CMakeFiles/line_follower.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rice/sum18_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/line_follower.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rice/sum18_ws/build/CMakeFiles 0
+.PHONY : gazros_test/CMakeFiles/line_follower.dir/rule
+
+# Convenience name for target.
+line_follower: gazros_test/CMakeFiles/line_follower.dir/rule
+
+.PHONY : line_follower
+
+# clean rule for target.
+gazros_test/CMakeFiles/line_follower.dir/clean:
+	$(MAKE) -f gazros_test/CMakeFiles/line_follower.dir/build.make gazros_test/CMakeFiles/line_follower.dir/clean
+.PHONY : gazros_test/CMakeFiles/line_follower.dir/clean
+
+# clean rule for target.
+clean: gazros_test/CMakeFiles/line_follower.dir/clean
 
 .PHONY : clean
 
@@ -3213,7 +3250,7 @@ clean: gazros_test/CMakeFiles/nodelet_generate_messages_py.dir/clean
 gazros_test/CMakeFiles/light_sensor_gazebo.dir/all:
 	$(MAKE) -f gazros_test/CMakeFiles/light_sensor_gazebo.dir/build.make gazros_test/CMakeFiles/light_sensor_gazebo.dir/depend
 	$(MAKE) -f gazros_test/CMakeFiles/light_sensor_gazebo.dir/build.make gazros_test/CMakeFiles/light_sensor_gazebo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rice/sum18_ws/build/CMakeFiles --progress-num=14,15 "Built target light_sensor_gazebo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rice/sum18_ws/build/CMakeFiles --progress-num=12,13 "Built target light_sensor_gazebo"
 .PHONY : gazros_test/CMakeFiles/light_sensor_gazebo.dir/all
 
 # Include target in all.
@@ -3277,43 +3314,6 @@ gazros_test/CMakeFiles/tf_listener.dir/clean:
 
 # clean rule for target.
 clean: gazros_test/CMakeFiles/tf_listener.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target gazros_test/CMakeFiles/infrared_listener.dir
-
-# All Build rule for target.
-gazros_test/CMakeFiles/infrared_listener.dir/all: velodyne_tut/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-	$(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/depend
-	$(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rice/sum18_ws/build/CMakeFiles --progress-num=12,13 "Built target infrared_listener"
-.PHONY : gazros_test/CMakeFiles/infrared_listener.dir/all
-
-# Include target in all.
-all: gazros_test/CMakeFiles/infrared_listener.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-gazros_test/CMakeFiles/infrared_listener.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rice/sum18_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 gazros_test/CMakeFiles/infrared_listener.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rice/sum18_ws/build/CMakeFiles 0
-.PHONY : gazros_test/CMakeFiles/infrared_listener.dir/rule
-
-# Convenience name for target.
-infrared_listener: gazros_test/CMakeFiles/infrared_listener.dir/rule
-
-.PHONY : infrared_listener
-
-# clean rule for target.
-gazros_test/CMakeFiles/infrared_listener.dir/clean:
-	$(MAKE) -f gazros_test/CMakeFiles/infrared_listener.dir/build.make gazros_test/CMakeFiles/infrared_listener.dir/clean
-.PHONY : gazros_test/CMakeFiles/infrared_listener.dir/clean
-
-# clean rule for target.
-clean: gazros_test/CMakeFiles/infrared_listener.dir/clean
 
 .PHONY : clean
 

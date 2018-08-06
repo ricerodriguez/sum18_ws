@@ -110,6 +110,7 @@
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/bond_generate_messages_lisp.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/bond_generate_messages_eus.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/nodelet_generate_messages_lisp.dir
+/home/rice/sum18_ws/build/gazros_test/CMakeFiles/line_follower.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/bond_generate_messages_cpp.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/nav_msgs_generate_messages_eus.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/install.dir
@@ -127,7 +128,6 @@
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/nodelet_generate_messages_py.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/light_sensor_gazebo.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/tf_listener.dir
-/home/rice/sum18_ws/build/gazros_test/CMakeFiles/infrared_listener.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/bond_generate_messages_py.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/timid_robot.dir
 /home/rice/sum18_ws/build/gazros_test/CMakeFiles/install/strip.dir
